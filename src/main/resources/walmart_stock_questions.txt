@@ -1,0 +1,132 @@
+Sure! Working with stock data using Apache Spark is a great way to practice and enhance your data processing skills. Below are 10 problems that range from basic to advanced, which will help you to familiarize yourself with Spark Core functionalities like RDD transformations, actions, and use of APIs such as DataFrame and SQL.
+
+
+1. Load the Data
+
+Task: Load the Walmart stock data as a DataFrame or RDD.
+
+
+
+Objective: You should be able to load a CSV file into a DataFrame, understand the schema, and inspect the first few rows.
+
+Transformation/Action: spark.read.csv(), show(), printSchema(), head()
+
+
+2. Datetime Handling
+
+Task: Extract the year, month, and day from the 'Date' column and create three new columns named 'Year', 'Month', and 'Day'.
+
+
+
+Objective: Gain familiarity with Spark SQL functions and how to manipulate columns.
+
+Transformation/Action: withColumn(), year(), month(), day()
+
+
+3. Calculate Daily Returns
+
+Task: Calculate the daily percentage return for each row using the 'Adj Close' value and create a new column called 'DailyReturn'.
+
+
+
+Objective: Learn how to calculate deltas in time-series data.
+
+Transformation/Action: window(), lag and withColumn()
+
+
+4. Filter Data
+
+Task: Filter out days where the 'Volume' was less than 1 million.
+
+
+
+Objective: Get hands-on experience with the filter transformation and gain practice filtering data based on conditions.
+
+Transformation/Action: filter()
+
+
+5. Group Data by Year
+
+Task: Aggregate data to find the average 'High', 'Low', and 'Volume' for each year.
+
+
+
+Objective: Understand how to perform group by operations and compute aggregations.
+
+Transformation/Action: groupBy(), agg()
+
+
+6. Find Year with Maximum Close
+
+Task: Identify the year in  which Walmart's stock had the highest 'Close' price and the corresponding date.
+
+
+
+Objective: Learn to use the groupBy and max transformations efficiently.
+
+Transformation/Action: groupBy(), max(), sort()
+
+
+7. Volatile Days
+
+Task: Find the days where the difference between 'High' and 'Low' prices was more than 5%.
+
+
+
+Objective: Learn to create computed columns for conditions and filtering.
+
+Transformation/Action: withColumn(), filter()
+
+
+8. Calculate Moving Average
+
+Task: Compute a rolling 30-day moving average of the 'Close' price.
+
+
+
+Objective: Get familiar with window functions and rolling aggregations.
+
+Transformation/Action: window(), avg()
+
+
+9. Join with External Data
+
+Task: Assume you have an external dataset with information about holidays in the USA. Join this data with the Walmart stock data to label days as holidays or non-holidays.
+
+
+
+Objective: Gain understanding of joins in Spark.
+
+Transformation/Action: join(), left_outer, inner
+
+
+10. Year-on-Year Comparison
+
+Task: Compare the average 'Adj Close' prices in successive years to determine how much the stock price has increased or decreased year-on-year.
+
+
+
+Objective: Practice use of lag() function and enhance skills in window functions in Spark.
+
+Transformation/Action: window(), lag(), withColumn()
+
+
+
+Optional Challenges:
+
+
+Cluster and Partitioning:
+Task: Repartition the data based on years to improve performance on query execution.
+
+Objective: Understand partitioning and its impacts on performance.
+
+Transformation/Action: repartition(), partitionBy()
+
+
+
+Persisting Data:
+Task: Cache the DataFrame after some heavy transformations and measure the performance gain.
+
+Objective: Learn about caching and persisting DataFrames.
+
+Transformation/Action: cache(), persist()
