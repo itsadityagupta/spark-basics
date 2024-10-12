@@ -78,7 +78,9 @@ object WalmartStocksPipeline extends App {
   private val highestClosePrice = walmartStocksDF.agg(functions.max("close")).first().get(0)
   print(highestClosePrice)
 
-  walmartStocksDF.filter(functions.expr(s"close = $highestClosePrice")).show(10)
+  // alternate approach using broadcast variable
+  // private val broadcast_val = spark.sparkContext.broadcast(highestClosePrice);
+  // walmartStocksDF.filter(functions.expr(s"close = ${broadcast_val.value}")).show(10)
 
   private val highestClosePrice2 = walmartStocksDF.orderBy(col("close").desc).first();
 
